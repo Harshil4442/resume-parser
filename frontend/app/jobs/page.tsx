@@ -87,7 +87,10 @@ export default function JobsPage() {
         <div className="border rounded p-4 bg-white space-y-3">
           <div className="text-sm">
             <span className="font-semibold">Match score:</span>{" "}
-            {Number.isFinite(data.match_score) ? `${data.match_score.toFixed(1)} / 100` : "—"}
+            {(() => {
+              const scoreNum = Number((data as any)?.match_score);
+              return Number.isFinite(scoreNum) ? `${scoreNum.toFixed(1)} / 100` : "—";
+            })()}
           </div>
 
           <div className="text-sm font-semibold">Required skills</div>
