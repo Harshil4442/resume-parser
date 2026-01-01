@@ -31,14 +31,17 @@ export default function DashboardPage() {
         <>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <ScoreCard title="Profile completeness" value={`${data.profile_completeness}%`} />
-            <ScoreCard title="Average match score" value={`${data.average_match_score.toFixed(1)} / 100`} />
+            <ScoreCard
+              title="Average match score"
+              value={`${(Number(data.average_match_score) || 0).toFixed(1)} / 100`}
+            />
             <ScoreCard title="Resumes parsed" value={`${data.resume_count}`} />
           </div>
 
           <MatchHistoryChart
-            data={(data.match_history || []).map((h) => ({
-              timestamp: h.created_at,
-              match_score: h.score,
+            data={(data.match_history || []).map((h: any) => ({
+              timestamp: h.created_at ?? h.timestamp ?? new Date().toISOString(),
+              match_score: Number(h.score ?? h.match_score ?? 0),
             }))}
           />
         </>
