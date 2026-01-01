@@ -2,9 +2,17 @@
 const nextConfig = {
   async rewrites() {
     const backend = process.env.BACKEND_URL;
-    if (!backend) return []; // <-- prevents "undefined/api/..."
-    const base = backend.replace(/\/$/, "");
-    return [{ source: "/api/:path*", destination: `${base}/api/:path*` }];
+
+    // If BACKEND_URL is not set, don't add any rewrites.
+    // This prevents "destination undefined/..." build failures.
+    if (!backend) return [];
+
+    return [
+      {
+        source: "/api/:path*",
+        destination: `${backend}/api/:path*`,
+      },
+    ];
   },
 };
 
