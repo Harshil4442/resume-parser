@@ -1,0 +1,1232 @@
+[
+  {
+    "title": "Python for Everybody",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/specializations/python",
+    "skills": [
+      "python"
+    ],
+    "level": "intermediate",
+    "skill": "python"
+  },
+  {
+    "title": "Python Tutorial",
+    "platform": "Official Docs",
+    "url": "https://docs.python.org/3/tutorial/",
+    "skills": [
+      "python"
+    ],
+    "level": "beginner",
+    "skill": "python"
+  },
+  {
+    "title": "Automate the Boring Stuff with Python",
+    "platform": "Book/Online",
+    "url": "https://automatetheboringstuff.com/",
+    "skills": [
+      "python"
+    ],
+    "level": "intermediate",
+    "skill": "python"
+  },
+  {
+    "title": "JavaScript Guide",
+    "platform": "MDN",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+    "skills": [
+      "javascript"
+    ],
+    "level": "beginner",
+    "skill": "javascript"
+  },
+  {
+    "title": "JavaScript Algorithms and Data Structures",
+    "platform": "freeCodeCamp",
+    "url": "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/",
+    "skills": [
+      "javascript"
+    ],
+    "level": "intermediate",
+    "skill": "javascript"
+  },
+  {
+    "title": "Eloquent JavaScript",
+    "platform": "Book/Online",
+    "url": "https://eloquentjavascript.net/",
+    "skills": [
+      "javascript"
+    ],
+    "level": "intermediate",
+    "skill": "javascript"
+  },
+  {
+    "title": "TypeScript Handbook",
+    "platform": "Microsoft",
+    "url": "https://www.typescriptlang.org/docs/handbook/intro.html",
+    "skills": [
+      "typescript"
+    ],
+    "level": "intermediate",
+    "skill": "typescript"
+  },
+  {
+    "title": "TypeScript for JavaScript Programmers",
+    "platform": "Microsoft",
+    "url": "https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html",
+    "skills": [
+      "typescript"
+    ],
+    "level": "intermediate",
+    "skill": "typescript"
+  },
+  {
+    "title": "React Learn",
+    "platform": "react.dev",
+    "url": "https://react.dev/learn",
+    "skills": [
+      "react"
+    ],
+    "level": "beginner",
+    "skill": "react"
+  },
+  {
+    "title": "Next.js Learn",
+    "platform": "Vercel",
+    "url": "https://nextjs.org/learn",
+    "skills": [
+      "react"
+    ],
+    "level": "intermediate",
+    "skill": "react"
+  },
+  {
+    "title": "Node.js Learn",
+    "platform": "nodejs.dev",
+    "url": "https://nodejs.org/en/learn",
+    "skills": [
+      "node.js"
+    ],
+    "level": "intermediate",
+    "skill": "node.js"
+  },
+  {
+    "title": "Express.js Guide",
+    "platform": "Express",
+    "url": "https://expressjs.com/en/starter/installing.html",
+    "skills": [
+      "node.js"
+    ],
+    "level": "intermediate",
+    "skill": "node.js"
+  },
+  {
+    "title": "FastAPI Tutorial",
+    "platform": "FastAPI",
+    "url": "https://fastapi.tiangolo.com/tutorial/",
+    "skills": [
+      "fastapi"
+    ],
+    "level": "beginner",
+    "skill": "fastapi"
+  },
+  {
+    "title": "Django Tutorial",
+    "platform": "Django",
+    "url": "https://docs.djangoproject.com/en/stable/intro/tutorial01/",
+    "skills": [
+      "django"
+    ],
+    "level": "intermediate",
+    "skill": "django"
+  },
+  {
+    "title": "Flask Tutorial",
+    "platform": "Flask",
+    "url": "https://flask.palletsprojects.com/en/latest/tutorial/",
+    "skills": [
+      "flask"
+    ],
+    "level": "intermediate",
+    "skill": "flask"
+  },
+  {
+    "title": "SQL Tutorial",
+    "platform": "Khan Academy",
+    "url": "https://www.khanacademy.org/computing/computer-programming/sql",
+    "skills": [
+      "sql"
+    ],
+    "level": "intermediate",
+    "skill": "sql"
+  },
+  {
+    "title": "PostgreSQL Tutorial",
+    "platform": "PostgreSQL",
+    "url": "https://www.postgresql.org/docs/current/tutorial.html",
+    "skills": [
+      "postgresql"
+    ],
+    "level": "intermediate",
+    "skill": "postgresql"
+  },
+  {
+    "title": "MySQL Tutorial",
+    "platform": "MySQL",
+    "url": "https://dev.mysql.com/doc/",
+    "skills": [
+      "mysql"
+    ],
+    "level": "intermediate",
+    "skill": "mysql"
+  },
+  {
+    "title": "Redis Getting Started",
+    "platform": "Redis",
+    "url": "https://redis.io/docs/latest/develop/get-started/",
+    "skills": [
+      "redis"
+    ],
+    "level": "intermediate",
+    "skill": "redis"
+  },
+  {
+    "title": "Docker Get Started",
+    "platform": "Docker",
+    "url": "https://docs.docker.com/get-started/",
+    "skills": [
+      "docker"
+    ],
+    "level": "beginner",
+    "skill": "docker"
+  },
+  {
+    "title": "Kubernetes Basics",
+    "platform": "Kubernetes",
+    "url": "https://kubernetes.io/docs/tutorials/kubernetes-basics/",
+    "skills": [
+      "kubernetes"
+    ],
+    "level": "beginner",
+    "skill": "kubernetes"
+  },
+  {
+    "title": "CI/CD Basics",
+    "platform": "GitHub Docs",
+    "url": "https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions",
+    "skills": [
+      "ci/cd"
+    ],
+    "level": "intermediate",
+    "skill": "ci/cd"
+  },
+  {
+    "title": "Google Cloud Skills Boost",
+    "platform": "Google",
+    "url": "https://www.cloudskillsboost.google/",
+    "skills": [
+      "gcp"
+    ],
+    "level": "intermediate",
+    "skill": "gcp"
+  },
+  {
+    "title": "AWS Skill Builder",
+    "platform": "AWS",
+    "url": "https://skillbuilder.aws/",
+    "skills": [
+      "aws"
+    ],
+    "level": "intermediate",
+    "skill": "aws"
+  },
+  {
+    "title": "Microsoft Learn: Azure",
+    "platform": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/training/azure/",
+    "skills": [
+      "azure"
+    ],
+    "level": "intermediate",
+    "skill": "azure"
+  },
+  {
+    "title": "Deploy to Cloud Run",
+    "platform": "Google",
+    "url": "https://cloud.google.com/run/docs/quickstarts/build-and-deploy/deploy-python-service",
+    "skills": [
+      "cloud run"
+    ],
+    "level": "intermediate",
+    "skill": "cloud run"
+  },
+  {
+    "title": "OAuth 2.0 Overview",
+    "platform": "OAuth.net",
+    "url": "https://www.oauth.com/",
+    "skills": [
+      "oauth"
+    ],
+    "level": "intermediate",
+    "skill": "oauth"
+  },
+  {
+    "title": "JWT Introduction",
+    "platform": "jwt.io",
+    "url": "https://jwt.io/introduction",
+    "skills": [
+      "jwt"
+    ],
+    "level": "intermediate",
+    "skill": "jwt"
+  },
+  {
+    "title": "Data Structures",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/specializations/data-structures-algorithms",
+    "skills": [
+      "data structures"
+    ],
+    "level": "intermediate",
+    "skill": "data structures"
+  },
+  {
+    "title": "System Design Primer",
+    "platform": "GitHub",
+    "url": "https://github.com/donnemartin/system-design-primer",
+    "skills": [
+      "system design"
+    ],
+    "level": "intermediate",
+    "skill": "system design"
+  },
+  {
+    "title": "Operating Systems: Three Easy Pieces",
+    "platform": "Book/Online",
+    "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+    "skills": [
+      "operating systems"
+    ],
+    "level": "intermediate",
+    "skill": "operating systems"
+  },
+  {
+    "title": "Machine Learning Specialization",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/specializations/machine-learning-introduction",
+    "skills": [
+      "machine learning"
+    ],
+    "level": "intermediate",
+    "skill": "machine learning"
+  },
+  {
+    "title": "NLP Course (CS224n)",
+    "platform": "Stanford Online",
+    "url": "https://web.stanford.edu/class/cs224n/",
+    "skills": [
+      "nlp"
+    ],
+    "level": "intermediate",
+    "skill": "nlp"
+  },
+  {
+    "title": "Deep Learning with PyTorch",
+    "platform": "PyTorch",
+    "url": "https://pytorch.org/tutorials/",
+    "skills": [
+      "pytorch"
+    ],
+    "level": "intermediate",
+    "skill": "pytorch"
+  },
+  {
+    "title": "TensorFlow Tutorials",
+    "platform": "TensorFlow",
+    "url": "https://www.tensorflow.org/tutorials",
+    "skills": [
+      "tensorflow"
+    ],
+    "level": "intermediate",
+    "skill": "tensorflow"
+  },
+  {
+    "title": "pytest documentation",
+    "platform": "pytest",
+    "url": "https://docs.pytest.org/en/stable/",
+    "skills": [
+      "testing"
+    ],
+    "level": "intermediate",
+    "skill": "testing"
+  },
+  {
+    "title": "Testing JavaScript",
+    "platform": "Jest",
+    "url": "https://jestjs.io/docs/getting-started",
+    "skills": [
+      "testing"
+    ],
+    "level": "intermediate",
+    "skill": "testing"
+  },
+  {
+    "title": "Pro Git Book",
+    "platform": "Book/Online",
+    "url": "https://git-scm.com/book/en/v2",
+    "skills": [
+      "git"
+    ],
+    "level": "intermediate",
+    "skill": "git"
+  },
+  {
+    "title": "GitHub Git Handbook",
+    "platform": "GitHub Docs",
+    "url": "https://docs.github.com/en/get-started/using-git/about-git",
+    "skills": [
+      "git"
+    ],
+    "level": "intermediate",
+    "skill": "git"
+  },
+  {
+    "title": "The Linux Command Line",
+    "platform": "Book/Online",
+    "url": "https://linuxcommand.org/tlcl.php",
+    "skills": [
+      "linux"
+    ],
+    "level": "intermediate",
+    "skill": "linux"
+  },
+  {
+    "title": "Linux Journey",
+    "platform": "Linux Journey",
+    "url": "https://linuxjourney.com/",
+    "skills": [
+      "linux"
+    ],
+    "level": "intermediate",
+    "skill": "linux"
+  },
+  {
+    "title": "Java Tutorials",
+    "platform": "Oracle",
+    "url": "https://docs.oracle.com/javase/tutorial/",
+    "skills": [
+      "java"
+    ],
+    "level": "intermediate",
+    "skill": "java"
+  },
+  {
+    "title": "C++ Tutorials",
+    "platform": "cppreference",
+    "url": "https://en.cppreference.com/w/cpp",
+    "skills": [
+      "c++"
+    ],
+    "level": "intermediate",
+    "skill": "c++"
+  },
+  {
+    "title": "Go Tour",
+    "platform": "Go",
+    "url": "https://tour.golang.org/welcome/1",
+    "skills": [
+      "go"
+    ],
+    "level": "beginner",
+    "skill": "go"
+  },
+  {
+    "title": "The Rust Book",
+    "platform": "Rust",
+    "url": "https://doc.rust-lang.org/book/",
+    "skills": [
+      "rust"
+    ],
+    "level": "beginner",
+    "skill": "rust"
+  },
+  {
+    "title": "Swift Documentation",
+    "platform": "Apple",
+    "url": "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/",
+    "skills": [
+      "swift"
+    ],
+    "level": "intermediate",
+    "skill": "swift"
+  },
+  {
+    "title": "Android Basics with Compose",
+    "platform": "Android Developers",
+    "url": "https://developer.android.com/courses/android-basics-compose/course",
+    "skills": [
+      "android"
+    ],
+    "level": "intermediate",
+    "skill": "android"
+  },
+  {
+    "title": "iOS App Dev Tutorials",
+    "platform": "Apple",
+    "url": "https://developer.apple.com/tutorials/app-dev-training",
+    "skills": [
+      "ios"
+    ],
+    "level": "intermediate",
+    "skill": "ios"
+  },
+  {
+    "title": "pandas user guide",
+    "platform": "pandas",
+    "url": "https://pandas.pydata.org/docs/user_guide/index.html",
+    "skills": [
+      "pandas"
+    ],
+    "level": "intermediate",
+    "skill": "pandas"
+  },
+  {
+    "title": "NumPy quickstart",
+    "platform": "NumPy",
+    "url": "https://numpy.org/doc/stable/user/quickstart.html",
+    "skills": [
+      "numpy"
+    ],
+    "level": "intermediate",
+    "skill": "numpy"
+  },
+  {
+    "title": "Data Engineering Zoomcamp",
+    "platform": "DataTalksClub",
+    "url": "https://github.com/DataTalksClub/data-engineering-zoomcamp",
+    "skills": [
+      "data engineering"
+    ],
+    "level": "intermediate",
+    "skill": "data engineering"
+  },
+  {
+    "title": "Prometheus Getting Started",
+    "platform": "Prometheus",
+    "url": "https://prometheus.io/docs/prometheus/latest/getting_started/",
+    "skills": [
+      "prometheus"
+    ],
+    "level": "intermediate",
+    "skill": "prometheus"
+  },
+  {
+    "title": "Grafana Getting Started",
+    "platform": "Grafana",
+    "url": "https://grafana.com/docs/grafana/latest/getting-started/",
+    "skills": [
+      "grafana"
+    ],
+    "level": "intermediate",
+    "skill": "grafana"
+  },
+  {
+    "title": "HTML basics",
+    "platform": "MDN",
+    "url": "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics",
+    "skills": [
+      "html"
+    ],
+    "level": "beginner",
+    "skill": "html"
+  },
+  {
+    "title": "CSS basics",
+    "platform": "MDN",
+    "url": "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics",
+    "skills": [
+      "css"
+    ],
+    "level": "beginner",
+    "skill": "css"
+  },
+  {
+    "title": "Tailwind Docs",
+    "platform": "Tailwind",
+    "url": "https://tailwindcss.com/docs/installation",
+    "skills": [
+      "tailwind"
+    ],
+    "level": "intermediate",
+    "skill": "tailwind"
+  },
+  {
+    "title": "GraphQL Learn",
+    "platform": "GraphQL",
+    "url": "https://graphql.org/learn/",
+    "skills": [
+      "graphql"
+    ],
+    "level": "intermediate",
+    "skill": "graphql"
+  },
+  {
+    "title": "REST API Design",
+    "platform": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design",
+    "skills": [
+      "rest"
+    ],
+    "level": "intermediate",
+    "skill": "rest"
+  },
+  {
+    "title": "Microservices Guide",
+    "platform": "Google Cloud",
+    "url": "https://cloud.google.com/architecture/microservices",
+    "skills": [
+      "microservices"
+    ],
+    "level": "intermediate",
+    "skill": "microservices"
+  },
+  {
+    "title": "Software Architecture Guide",
+    "platform": "Azure",
+    "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/",
+    "skills": [
+      "software architecture"
+    ],
+    "level": "intermediate",
+    "skill": "software architecture"
+  },
+  {
+    "title": "Refactoring.Guru Patterns",
+    "platform": "Refactoring.Guru",
+    "url": "https://refactoring.guru/design-patterns",
+    "skills": [
+      "design patterns"
+    ],
+    "level": "intermediate",
+    "skill": "design patterns"
+  },
+  {
+    "title": "LeetCode Explore",
+    "platform": "LeetCode",
+    "url": "https://leetcode.com/explore/",
+    "skills": [
+      "leetcode"
+    ],
+    "level": "intermediate",
+    "skill": "leetcode"
+  },
+  {
+    "title": "Tech Interview Handbook",
+    "platform": "GitHub",
+    "url": "https://github.com/yangshun/tech-interview-handbook",
+    "skills": [
+      "interview"
+    ],
+    "level": "intermediate",
+    "skill": "interview"
+  },
+  {
+    "title": "Epic React (resources)",
+    "platform": "Kent C. Dodds",
+    "url": "https://epicreact.dev/",
+    "skills": [
+      "react"
+    ],
+    "level": "intermediate",
+    "skill": "react"
+  },
+  {
+    "title": "Vue Guide",
+    "platform": "Vue",
+    "url": "https://vuejs.org/guide/introduction.html",
+    "skills": [
+      "vue"
+    ],
+    "level": "beginner",
+    "skill": "vue"
+  },
+  {
+    "title": "Angular Docs",
+    "platform": "Angular",
+    "url": "https://angular.dev/overview",
+    "skills": [
+      "angular"
+    ],
+    "level": "beginner",
+    "skill": "angular"
+  },
+  {
+    "title": "Svelte Tutorial",
+    "platform": "Svelte",
+    "url": "https://svelte.dev/tutorial",
+    "skills": [
+      "svelte"
+    ],
+    "level": "beginner",
+    "skill": "svelte"
+  },
+  {
+    "title": "Next.js Docs",
+    "platform": "Vercel",
+    "url": "https://nextjs.org/docs",
+    "skills": [
+      "next.js"
+    ],
+    "level": "intermediate",
+    "skill": "next.js"
+  },
+  {
+    "title": "React Native Docs",
+    "platform": "Meta",
+    "url": "https://reactnative.dev/docs/getting-started",
+    "skills": [
+      "react native"
+    ],
+    "level": "intermediate",
+    "skill": "react native"
+  },
+  {
+    "title": "Flutter docs",
+    "platform": "Flutter",
+    "url": "https://docs.flutter.dev/",
+    "skills": [
+      "flutter"
+    ],
+    "level": "intermediate",
+    "skill": "flutter"
+  },
+  {
+    "title": "Spring Getting Started",
+    "platform": "Spring",
+    "url": "https://spring.io/guides",
+    "skills": [
+      "spring"
+    ],
+    "level": "intermediate",
+    "skill": "spring"
+  },
+  {
+    "title": "ASP.NET Core Tutorial",
+    "platform": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-8.0",
+    "skills": [
+      ".net"
+    ],
+    "level": "intermediate",
+    "skill": ".net"
+  },
+  {
+    "title": "SQLAlchemy ORM Tutorial",
+    "platform": "SQLAlchemy",
+    "url": "https://docs.sqlalchemy.org/en/20/orm/quickstart.html",
+    "skills": [
+      "sqlalchemy"
+    ],
+    "level": "intermediate",
+    "skill": "sqlalchemy"
+  },
+  {
+    "title": "Alembic Tutorial",
+    "platform": "Alembic",
+    "url": "https://alembic.sqlalchemy.org/en/latest/tutorial.html",
+    "skills": [
+      "alembic"
+    ],
+    "level": "intermediate",
+    "skill": "alembic"
+  },
+  {
+    "title": "Celery First Steps",
+    "platform": "Celery",
+    "url": "https://docs.celeryq.dev/en/stable/getting-started/first-steps-with-celery.html",
+    "skills": [
+      "celery"
+    ],
+    "level": "intermediate",
+    "skill": "celery"
+  },
+  {
+    "title": "RabbitMQ Tutorials",
+    "platform": "RabbitMQ",
+    "url": "https://www.rabbitmq.com/getstarted.html",
+    "skills": [
+      "rabbitmq"
+    ],
+    "level": "intermediate",
+    "skill": "rabbitmq"
+  },
+  {
+    "title": "Kafka Quickstart",
+    "platform": "Apache",
+    "url": "https://kafka.apache.org/quickstart",
+    "skills": [
+      "kafka"
+    ],
+    "level": "intermediate",
+    "skill": "kafka"
+  },
+  {
+    "title": "NGINX Beginner Guide",
+    "platform": "NGINX",
+    "url": "https://nginx.org/en/docs/beginners_guide.html",
+    "skills": [
+      "nginx"
+    ],
+    "level": "intermediate",
+    "skill": "nginx"
+  },
+  {
+    "title": "Terraform Learn",
+    "platform": "HashiCorp",
+    "url": "https://developer.hashicorp.com/terraform/tutorials",
+    "skills": [
+      "terraform"
+    ],
+    "level": "intermediate",
+    "skill": "terraform"
+  },
+  {
+    "title": "Ansible Getting Started",
+    "platform": "Red Hat",
+    "url": "https://docs.ansible.com/ansible/latest/getting_started/index.html",
+    "skills": [
+      "ansible"
+    ],
+    "level": "intermediate",
+    "skill": "ansible"
+  },
+  {
+    "title": "Git Branching",
+    "platform": "Learn Git Branching",
+    "url": "https://learngitbranching.js.org/",
+    "skills": [
+      "git"
+    ],
+    "level": "intermediate",
+    "skill": "git"
+  },
+  {
+    "title": "Linux Performance",
+    "platform": "Brendan Gregg",
+    "url": "https://www.brendangregg.com/linuxperf.html",
+    "skills": [
+      "linux"
+    ],
+    "level": "intermediate",
+    "skill": "linux"
+  },
+  {
+    "title": "Bash Guide",
+    "platform": "Bash Hackers Wiki (archived)",
+    "url": "https://mywiki.wooledge.org/BashGuide",
+    "skills": [
+      "bash"
+    ],
+    "level": "intermediate",
+    "skill": "bash"
+  },
+  {
+    "title": "React Testing Library",
+    "platform": "Testing Library",
+    "url": "https://testing-library.com/docs/react-testing-library/intro/",
+    "skills": [
+      "react"
+    ],
+    "level": "intermediate",
+    "skill": "react"
+  },
+  {
+    "title": "Playwright Docs",
+    "platform": "Microsoft",
+    "url": "https://playwright.dev/docs/intro",
+    "skills": [
+      "playwright"
+    ],
+    "level": "intermediate",
+    "skill": "playwright"
+  },
+  {
+    "title": "Cypress Docs",
+    "platform": "Cypress",
+    "url": "https://docs.cypress.io/",
+    "skills": [
+      "cypress"
+    ],
+    "level": "intermediate",
+    "skill": "cypress"
+  },
+  {
+    "title": "Storybook Tutorial",
+    "platform": "Storybook",
+    "url": "https://storybook.js.org/tutorials/",
+    "skills": [
+      "storybook"
+    ],
+    "level": "intermediate",
+    "skill": "storybook"
+  },
+  {
+    "title": "ESLint Docs",
+    "platform": "ESLint",
+    "url": "https://eslint.org/docs/latest/",
+    "skills": [
+      "eslint"
+    ],
+    "level": "intermediate",
+    "skill": "eslint"
+  },
+  {
+    "title": "Prettier Docs",
+    "platform": "Prettier",
+    "url": "https://prettier.io/docs/en/",
+    "skills": [
+      "prettier"
+    ],
+    "level": "intermediate",
+    "skill": "prettier"
+  },
+  {
+    "title": "Vite Guide",
+    "platform": "Vite",
+    "url": "https://vitejs.dev/guide/",
+    "skills": [
+      "vite"
+    ],
+    "level": "intermediate",
+    "skill": "vite"
+  },
+  {
+    "title": "Webpack Concepts",
+    "platform": "Webpack",
+    "url": "https://webpack.js.org/concepts/",
+    "skills": [
+      "webpack"
+    ],
+    "level": "intermediate",
+    "skill": "webpack"
+  },
+  {
+    "title": "API Gateway Concepts",
+    "platform": "AWS",
+    "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html",
+    "skills": [
+      "api gateway"
+    ],
+    "level": "intermediate",
+    "skill": "api gateway"
+  },
+  {
+    "title": "Cloud Storage Docs",
+    "platform": "Google",
+    "url": "https://cloud.google.com/storage/docs",
+    "skills": [
+      "cloud storage"
+    ],
+    "level": "intermediate",
+    "skill": "cloud storage"
+  },
+  {
+    "title": "BigQuery Docs",
+    "platform": "Google",
+    "url": "https://cloud.google.com/bigquery/docs",
+    "skills": [
+      "bigquery"
+    ],
+    "level": "intermediate",
+    "skill": "bigquery"
+  },
+  {
+    "title": "Pub/Sub Docs",
+    "platform": "Google",
+    "url": "https://cloud.google.com/pubsub/docs",
+    "skills": [
+      "pub/sub"
+    ],
+    "level": "intermediate",
+    "skill": "pub/sub"
+  },
+  {
+    "title": "Cloud Functions Docs",
+    "platform": "Google",
+    "url": "https://cloud.google.com/functions/docs",
+    "skills": [
+      "cloud functions"
+    ],
+    "level": "intermediate",
+    "skill": "cloud functions"
+  },
+  {
+    "title": "Serverless Handbook",
+    "platform": "GitHub",
+    "url": "https://github.com/pmuens/serverless-handbook",
+    "skills": [
+      "serverless"
+    ],
+    "level": "intermediate",
+    "skill": "serverless"
+  },
+  {
+    "title": "OpenTelemetry Docs",
+    "platform": "OpenTelemetry",
+    "url": "https://opentelemetry.io/docs/",
+    "skills": [
+      "observability"
+    ],
+    "level": "intermediate",
+    "skill": "observability"
+  },
+  {
+    "title": "OWASP Top 10",
+    "platform": "OWASP",
+    "url": "https://owasp.org/www-project-top-ten/",
+    "skills": [
+      "security"
+    ],
+    "level": "intermediate",
+    "skill": "security"
+  },
+  {
+    "title": "Web Security Academy",
+    "platform": "PortSwigger",
+    "url": "https://portswigger.net/web-security",
+    "skills": [
+      "web security"
+    ],
+    "level": "intermediate",
+    "skill": "web security"
+  },
+  {
+    "title": "HTTP Overview",
+    "platform": "MDN",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview",
+    "skills": [
+      "http"
+    ],
+    "level": "beginner",
+    "skill": "http"
+  },
+  {
+    "title": "Computer Networking",
+    "platform": "Stanford (CS144)",
+    "url": "https://cs144.github.io/",
+    "skills": [
+      "networking"
+    ],
+    "level": "intermediate",
+    "skill": "networking"
+  },
+  {
+    "title": "Distributed Systems (MIT 6.824)",
+    "platform": "MIT",
+    "url": "https://pdos.csail.mit.edu/6.824/",
+    "skills": [
+      "distributed systems"
+    ],
+    "level": "intermediate",
+    "skill": "distributed systems"
+  },
+  {
+    "title": "MIT 6.S081",
+    "platform": "MIT",
+    "url": "https://pdos.csail.mit.edu/6.828/2020/schedule.html",
+    "skills": [
+      "operating systems"
+    ],
+    "level": "intermediate",
+    "skill": "operating systems"
+  },
+  {
+    "title": "Algorithms (CLRS)",
+    "platform": "Book",
+    "url": "https://mitpress.mit.edu/9780262046305/introduction-to-algorithms-fourth-edition/",
+    "skills": [
+      "algorithms"
+    ],
+    "level": "intermediate",
+    "skill": "algorithms"
+  },
+  {
+    "title": "Grokking the System Design Interview",
+    "platform": "Educative",
+    "url": "https://www.educative.io/courses/grokking-the-system-design-interview",
+    "skills": [
+      "system design"
+    ],
+    "level": "intermediate",
+    "skill": "system design"
+  },
+  {
+    "title": "NeetCode Roadmap",
+    "platform": "NeetCode",
+    "url": "https://neetcode.io/roadmap",
+    "skills": [
+      "data structures"
+    ],
+    "level": "intermediate",
+    "skill": "data structures"
+  },
+  {
+    "title": "Kotlin Docs",
+    "platform": "Kotlin",
+    "url": "https://kotlinlang.org/docs/home.html",
+    "skills": [
+      "kotlin"
+    ],
+    "level": "intermediate",
+    "skill": "kotlin"
+  },
+  {
+    "title": "Scala Tour",
+    "platform": "Scala",
+    "url": "https://docs.scala-lang.org/tour/tour-of-scala.html",
+    "skills": [
+      "scala"
+    ],
+    "level": "intermediate",
+    "skill": "scala"
+  },
+  {
+    "title": "PHP Manual",
+    "platform": "PHP",
+    "url": "https://www.php.net/manual/en/",
+    "skills": [
+      "php"
+    ],
+    "level": "intermediate",
+    "skill": "php"
+  },
+  {
+    "title": "Laravel Docs",
+    "platform": "Laravel",
+    "url": "https://laravel.com/docs",
+    "skills": [
+      "laravel"
+    ],
+    "level": "intermediate",
+    "skill": "laravel"
+  },
+  {
+    "title": "Ruby Docs",
+    "platform": "Ruby",
+    "url": "https://www.ruby-lang.org/en/documentation/",
+    "skills": [
+      "ruby"
+    ],
+    "level": "intermediate",
+    "skill": "ruby"
+  },
+  {
+    "title": "Rails Guides",
+    "platform": "Ruby on Rails",
+    "url": "https://guides.rubyonrails.org/",
+    "skills": [
+      "rails"
+    ],
+    "level": "intermediate",
+    "skill": "rails"
+  },
+  {
+    "title": "MongoDB University",
+    "platform": "MongoDB",
+    "url": "https://learn.mongodb.com/",
+    "skills": [
+      "mongodb"
+    ],
+    "level": "intermediate",
+    "skill": "mongodb"
+  },
+  {
+    "title": "DynamoDB Docs",
+    "platform": "AWS",
+    "url": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html",
+    "skills": [
+      "dynamodb"
+    ],
+    "level": "intermediate",
+    "skill": "dynamodb"
+  },
+  {
+    "title": "Apollo GraphQL Docs",
+    "platform": "Apollo",
+    "url": "https://www.apollographql.com/docs/",
+    "skills": [
+      "graphql"
+    ],
+    "level": "intermediate",
+    "skill": "graphql"
+  },
+  {
+    "title": "gRPC Basics",
+    "platform": "gRPC",
+    "url": "https://grpc.io/docs/what-is-grpc/introduction/",
+    "skills": [
+      "grpc"
+    ],
+    "level": "intermediate",
+    "skill": "grpc"
+  },
+  {
+    "title": "Protocol Buffers",
+    "platform": "Google",
+    "url": "https://protobuf.dev/",
+    "skills": [
+      "protobuf"
+    ],
+    "level": "intermediate",
+    "skill": "protobuf"
+  },
+  {
+    "title": "OpenAPI Specification",
+    "platform": "OAI",
+    "url": "https://spec.openapis.org/oas/latest.html",
+    "skills": [
+      "openapi"
+    ],
+    "level": "intermediate",
+    "skill": "openapi"
+  },
+  {
+    "title": "FastAPI Security",
+    "platform": "FastAPI",
+    "url": "https://fastapi.tiangolo.com/tutorial/security/",
+    "skills": [
+      "fastapi"
+    ],
+    "level": "beginner",
+    "skill": "fastapi"
+  },
+  {
+    "title": "SQL Performance Explained",
+    "platform": "Book/Online",
+    "url": "https://sql-performance-explained.com/",
+    "skills": [
+      "postgresql"
+    ],
+    "level": "intermediate",
+    "skill": "postgresql"
+  },
+  {
+    "title": "Linux Kernel documentation",
+    "platform": "Kernel.org",
+    "url": "https://www.kernel.org/doc/html/latest/",
+    "skills": [
+      "linux"
+    ],
+    "level": "intermediate",
+    "skill": "linux"
+  },
+  {
+    "title": "C Reference",
+    "platform": "cppreference",
+    "url": "https://en.cppreference.com/w/c",
+    "skills": [
+      "c"
+    ],
+    "level": "intermediate",
+    "skill": "c"
+  }
+]
