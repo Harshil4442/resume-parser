@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: ai-resume-copilot
+    env: docker
+    plan: starter
+    autoDeploy: true
+    envVars:
+      - key: NEXT_PUBLIC_API_BASE_URL
+        value: /api
+      - key: DATABASE_URL
+        sync: false
