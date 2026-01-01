@@ -1,4 +1,4 @@
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Union
 from pydantic import BaseModel, EmailStr, Field
 
 # -------------------------
@@ -36,7 +36,7 @@ class JobMatchRequest(BaseModel):
     resume_id: int
     job_title: str
     company: Optional[str] = None
-    job_description: str
+    job_description: Union[str, List[str]]
 
 # -------------------------
 # LLM helpers

@@ -24,13 +24,19 @@ def match_job(
 
     required_skills = extract_required_skills_from_jd(payload.job_description)
     score, missing = compute_match_score(resume.skills or [], required_skills)
+    
+    jd = payload.job_description
+    if isinstance(jd, list):
+        jd_text = "\n".join([str(x) for x in jd])
+    else:
+        jd_text = str(jd)
 
     match = models.JobMatch(
         user_id=current_user.id,
         resume_id=resume.id,
         job_title=payload.job_title,
         company=payload.company or "",
-        job_description=payload.job_description,
+        job_description=jd_text,
         match_score=score,
         extracted_skills=required_skills,
         missing_skills=missing,

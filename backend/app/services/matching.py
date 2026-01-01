@@ -73,6 +73,12 @@ def compute_match_score(resume_text: str, jd_text: str) -> float:
 def extract_required_skills_from_jd(jd_text: str) -> List[str]:
     # keep your existing implementation if you already have one;
     # minimal safe version:
-    tokens = sorted(_simple_tokenize(jd_text))
+    if isinstance(jd_text, list):
+        jd_text = "\n".join([str(x) for x in jd_text])
+    else:
+        jd_text = str(jd_text)
+
+    text = jd_text.lower()
+    tokens = sorted(_simple_tokenize(text))
     # just return top-ish tokens as "skills" baseline (replace with your extractor if present)
     return tokens[:30]
