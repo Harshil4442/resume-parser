@@ -31,11 +31,21 @@ export async function register(email: string, password: string) {
   const res = await fetch(`${API_BASE}/auth/register`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, password }),
+    body: JSON.stringify({
+      email: String(email).trim().toLowerCase(),
+      password: String(password), // force to string
+    }),
   });
-  const txt = await res.text();
-  const json = txt ? (() => { try { return JSON.parse(txt); } catch { return null; } })() : null;
-  if (!res.ok) throw new Error(json?.detail || txt || `Register failed (${res.status})`);
+
+  const raw = await res.text();
+  let json: any = null;
+  try {
+    json = raw ? JSON.parse(raw) : null;
+  } catch {}
+
+  if (!res.ok) {
+    throw new Error(json?.detail || raw || `Register failed (${res.status})`);
+  }
   return json;
 }
 
