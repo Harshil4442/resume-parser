@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-
+from passlib.exc import PasswordSizeError
 from ..database import get_db
 from ..models import User
 from ..schemas import AuthLoginRequest, AuthRegisterRequest, AuthTokenResponse, UserMeResponse
@@ -16,15 +16,18 @@ def register(payload: AuthRegisterRequest, db: Session = Depends(get_db)):
     exists = db.query(User).filter(User.email == email).first()
     if exists:
         raise HTTPException(status_code=409, detail="Email already registered")
-    print("REGISTER password bytes:", len(payload.password.encode("utf-8")))
-    u = User(
-        email=email,
-        password_hash=hash_password(payload.password),
-    )
+
+    try:
+        pw_hash = hash_password(payload.password)
+    except PasswordSizeError:
+        raise HTTPException(status_code=400, detail="Password too long (max 72 bytes for bcrypt)")
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Password hash failed: {str(e)}")
+
+    u = User(email=email, password_hash=pw_hash)
     db.add(u)
     db.commit()
     db.refresh(u)
-
     return UserMeResponse(id=u.id, email=u.email)
 
 
@@ -36,7 +39,7 @@ def login(payload: AuthLoginRequest, db: Session = Depends(get_db)):
     if not u or not verify_password(payload.password, u.password_hash):
         raise HTTPException(status_code=401, detail="Invalid email or password")
 
-    token = create_access_token(sub=str(u.id))
+    token = create_access_token(subject=str(u.id))
     return AuthTokenResponse(access_token=token, token_type="bearer")
 
 

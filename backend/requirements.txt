@@ -10,5 +10,6 @@ pdfplumber
 python-multipart
 requests
 passlib[bcrypt]
+bcrypt
 python-jose[cryptography]
 email-validator
