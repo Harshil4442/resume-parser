@@ -1,5 +1,6 @@
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 
+
 export default function MatchHistoryChart({
   data,
 }: { data: { timestamp: string; match_score: number }[] }) {

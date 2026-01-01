@@ -5,6 +5,8 @@ from ..database import get_db
 from ..models import User
 from ..schemas import AuthLoginRequest, AuthRegisterRequest, AuthTokenResponse, UserMeResponse
 from ..security import create_access_token, get_current_user, hash_password, verify_password
+import hashlib
+print("REGISTER pw bytes:", len(payload.password.encode("utf-8")), "sha:", hashlib.sha256(payload.password.encode("utf-8")).hexdigest()[:8])
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 

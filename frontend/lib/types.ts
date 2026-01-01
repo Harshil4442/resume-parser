@@ -28,8 +28,8 @@ export type GapAnalysisResponse = {
 };
 
 export type MatchHistoryItem = {
-  created_at: string;
-  score: number;
+  timestamp: string;      // ISO string
+  match_score: number;    // 0..100
 };
 
 export type AnalyticsSummary = {

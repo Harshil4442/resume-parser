@@ -15,8 +15,8 @@ from .models import User
 # Password hashing
 # -------------------------------
 pwd_context = CryptContext(
-    schemes=["bcrypt_sha256", "bcrypt"],  # accept old bcrypt hashes too
-    deprecated="auto"
+    schemes=["pbkdf2_sha256", "bcrypt_sha256", "bcrypt"],
+    deprecated="auto",
 )
 
 def _validate_bcrypt_password_length(password: str) -> None:
@@ -28,19 +28,12 @@ def _validate_bcrypt_password_length(password: str) -> None:
         )
 
 def hash_password(password: str) -> str:
-    _validate_bcrypt_password_length(password)
-    if not isinstance(password, str):
-        raise HTTPException(status_code=400, detail="Password must be a string")
-
-    try:
-        return pwd_context.hash(password)
-    except Exception as e:
-        # bcrypt/passlib errors should not become 500
-        raise HTTPException(status_code=400, detail=str(e))
+    # Make absolutely sure we pass a normal string
+    password = (password or "").strip()
+    return pwd_context.hash(password)
 
 def verify_password(plain_password: str, password_hash: str) -> bool:
-    if len(plain_password.encode("utf-8")) > 72:
-        return False
+    plain_password = (plain_password or "").strip()
     return pwd_context.verify(plain_password, password_hash)
 
 # -------------------------------
