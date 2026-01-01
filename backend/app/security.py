@@ -14,10 +14,18 @@ from .models import User
 # -------------------------------
 # Password hashing
 # -------------------------------
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+pwd_context = CryptContext(
+    schemes=["pbkdf2_sha256", "bcrypt_sha256", "bcrypt"],
+    deprecated="auto",
+)
 
 def hash_password(password: str) -> str:
-    return pwd_context.hash(password)
+    # Force PBKDF2 so bcrypt's 72-byte limit can never break registration
+    try:
+        return pwd_context.hash(str(password), scheme="pbkdf2_sha256")
+    except Exception as e:
+        # return clean error instead of 500
+        raise HTTPException(status_code=400, detail=str(e))
 
 def verify_password(plain_password: str, password_hash: str) -> bool:
     return pwd_context.verify(plain_password, password_hash)

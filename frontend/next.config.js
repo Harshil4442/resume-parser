@@ -2,8 +2,10 @@
 const nextConfig = {
   async rewrites() {
     const backend = process.env.BACKEND_URL;
-    if (!backend) return [];
-    return [{ source: "/api/:path*", destination: `${backend}/api/:path*` }];
+    if (!backend) return []; // <-- prevents "undefined/api/..."
+    const base = backend.replace(/\/$/, "");
+    return [{ source: "/api/:path*", destination: `${base}/api/:path*` }];
   },
 };
+
 module.exports = nextConfig;
