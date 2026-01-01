@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { AnalyticsSummaryResponse as AnalyticsSummary } from "../../lib/types";
+import type { AnalyticsSummary } from "../../lib/types";
 import { apiGet } from "../../lib/api";
 import ScoreCard from "../../components/ScoreCard";
 import MatchHistoryChart from "../../components/MatchHistoryChart";
