@@ -1,84 +1,136 @@
-# backend/app/services/matching.py
-import os
 import re
-import logging
-from functools import lru_cache
-from typing import List, Optional
+from typing import Any, Iterable, Tuple, List, Set
 
-logger = logging.getLogger(__name__)
+from sentence_transformers import SentenceTransformer, util
 
-DEFAULT_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+# IMPORTANT:
+# - This module is used in /jobs/match.
+# - Your error "'list' object has no attribute 'lower'" happens when job_description
+#   comes as a list/JSON rather than a plain string.
+# - Fix: normalize input to string safely.
+
+# If you disabled sentence-transformers via env (USE_SENTENCE_TRANSFORMER=0),
+# this file may still be imported; keep it lightweight.
+USE_ST = True
+try:
+    import os
+    USE_ST = os.getenv("USE_SENTENCE_TRANSFORMER", "1") not in ("0", "false", "False")
+except Exception:
+    USE_ST = True
+
+_model = None
+def _get_model():
+    global _model
+    if _model is None and USE_ST:
+        _model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+    return _model
 
 
-def _simple_tokenize(s: str) -> set[str]:
-    return set(re.findall(r"[a-z0-9\+\#\.\-]{2,}", (s or "").lower()))
+def _to_text(x: Any) -> str:
+    """Convert arbitrary payload to a best-effort string."""
+    if x is None:
+        return ""
+    if isinstance(x, str):
+        return x
+    if isinstance(x, (list, tuple, set)):
+        # join only string-ish items
+        parts = []
+        for i in x:
+            if i is None:
+                continue
+            parts.append(str(i))
+        return "\n".join(parts)
+    if isinstance(x, dict):
+        # join values
+        parts = []
+        for k, v in x.items():
+            parts.append(f"{k}: {v}")
+        return "\n".join(parts)
+    return str(x)
 
 
-def _jaccard(a: str, b: str) -> float:
-    A, B = _simple_tokenize(a), _simple_tokenize(b)
-    if not A or not B:
-        return 0.0
-    return len(A & B) / len(A | B)
+def _normalize_skill(s: Any) -> str:
+    if s is None:
+        return ""
+    s = str(s)
+    s = s.strip().lower()
+    s = re.sub(r"\s+", " ", s)
+    return s
 
 
-@lru_cache(maxsize=1)
-def _get_sentence_transformer():
+def extract_required_skills_from_jd(job_description: Any) -> List[str]:
     """
-    Lazy-load the SentenceTransformer ONLY when needed, and only if enabled.
-
-    Default is disabled on Cloud Run to avoid:
-      - cold-start downloads
-      - HF rate limits (429)
-      - startup crashes (container never binds PORT)
+    Very simple extractor:
+    - tokenizes job description text
+    - matches against a small curated set + heuristics
     """
-    if os.getenv("USE_SENTENCE_TRANSFORMER", "0") != "1":
-        return None
+    text = _to_text(job_description).lower()
 
-    # Cache location must be writable on Cloud Run (use /tmp)
-    os.environ.setdefault("HF_HOME", "/tmp/hf")
-    os.environ.setdefault("TRANSFORMERS_CACHE", "/tmp/hf/transformers")
+    # Common skills list (starter set). You can expand this list anytime.
+    known = {
+        "python", "java", "javascript", "typescript", "react", "next.js", "node", "node.js",
+        "fastapi", "django", "flask",
+        "sql", "postgresql", "mysql", "mongodb",
+        "docker", "kubernetes", "aws", "gcp", "azure",
+        "git", "linux",
+        "pandas", "numpy", "scikit-learn", "pytorch", "tensorflow",
+        "ci/cd", "graphql", "rest", "redis"
+    }
 
-    # HF docs: can disable hf-xet usage via env var if it causes issues
-    os.environ.setdefault("HF_HUB_DISABLE_XET", "1")  # optional but recommended  [oai_citation:1‡Hugging Face](https://huggingface.co/docs/huggingface_hub/en/package_reference/environment_variables?utm_source=chatgpt.com)
+    found: Set[str] = set()
+    for k in known:
+        # handle dot skills like next.js
+        if k in text:
+            found.add(k)
 
-    model_name = os.getenv("ST_MODEL", DEFAULT_MODEL)
+    # crude regex for things like "C++", "C#", "golang"
+    if re.search(r"\bc\+\+\b", text):
+        found.add("c++")
+    if re.search(r"\bc#\b", text):
+        found.add("c#")
+    if re.search(r"\bgolang\b|\bgo\b", text):
+        found.add("go")
 
-    from sentence_transformers import SentenceTransformer
-    return SentenceTransformer(model_name)
+    # normalize
+    return sorted({_normalize_skill(s) for s in found if s})
 
 
-def _cosine_sim(v1, v2) -> float:
-    # vectors are already normalized when normalize_embeddings=True
-    return float(sum(a * b for a, b in zip(v1, v2)))
-
-
-def compute_match_score(resume_text: str, jd_text: str) -> float:
+def compute_match_score(
+    resume_skills: Iterable[Any],
+    required_skills: Iterable[Any],
+) -> Tuple[float, List[str]]:
     """
-    Returns match score in [0..1-ish].
-    If transformer isn't enabled/available, fallback to a stable keyword overlap score.
+    Returns:
+      score: 0..100
+      missing: list of required skills not found
     """
-    st = None
-    try:
-        st = _get_sentence_transformer()
-        if st is not None:
-            emb = st.encode([resume_text, jd_text], normalize_embeddings=True)
-            return _cosine_sim(emb[0], emb[1])
-    except Exception as e:
-        # If HF rate-limits / model download fails, do NOT crash the app.
-        logger.exception("SentenceTransformer failed; using fallback. Error: %s", e)
+    rs = {_normalize_skill(s) for s in (resume_skills or []) if _normalize_skill(s)}
+    rq = {_normalize_skill(s) for s in (required_skills or []) if _normalize_skill(s)}
 
-    return _jaccard(resume_text, jd_text)
+    if not rq:
+        return 0.0, []
 
+    missing = sorted(list(rq - rs))
 
-def extract_required_skills_from_jd(jd_text: str) -> List[str]:
-    # keep your existing implementation if you already have one;
-    # minimal safe version:
-    if isinstance(jd_text, list):
-        jd_text = "\n".join([str(x) for x in jd_text])
-    else:
-        jd_text = str(jd_text)
+    # baseline overlap score
+    overlap = len(rq & rs)
+    score = (overlap / max(len(rq), 1)) * 100.0
 
-    text = jd_text.lower()
-    tokens = sorted(_simple_tokenize(text))
-    # just return top-ish tokens as "skills" baseline (replace with your extractor if present)
-    return tokens[:30]
+    # optional semantic boost (only if enabled and model available)
+    model = _get_model()
+    if model and missing:
+        try:
+            rs_list = sorted(list(rs))
+            if rs_list:
+                emb_resume = model.encode(rs_list, convert_to_tensor=True)
+                emb_missing = model.encode(missing, convert_to_tensor=True)
+                sims = util.cos_sim(emb_missing, emb_resume)  # [missing x resume]
+                # If a "missing" skill is semantically close to something in resume, reduce penalty a bit.
+                close = (sims.max(dim=1).values > 0.55).sum().item()
+                # recover up to 15 points
+                score = min(100.0, score + min(15.0, float(close) * 3.0))
+        except Exception:
+            # keep baseline score if anything fails
+            pass
+
+    return float(score), missing

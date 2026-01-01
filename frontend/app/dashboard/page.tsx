@@ -20,6 +20,9 @@ export default function DashboardPage() {
     };
   }, []);
 
+  const avg = Number((data as any)?.average_match_score);
+  const avgText = Number.isFinite(avg) ? `${avg.toFixed(1)} / 100` : "—";
+
   return (
     <main className="max-w-4xl mx-auto py-10 space-y-6">
       <h1 className="text-2xl font-bold">Dashboard</h1>
@@ -28,36 +31,21 @@ export default function DashboardPage() {
       {!data && !error && <div className="text-sm text-gray-600">Loading…</div>}
 
       {data && (
-  <>
-    {(() => {
-      const anyData: any = data;
-
-      const profile = Number(anyData?.profile_completeness ?? 0);
-      const avg = Number(anyData?.average_match_score ?? anyData?.avg_match_score ?? 0);
-      const resumeCount = Number(anyData?.resume_count ?? 0);
-
-      const history = Array.isArray(anyData?.match_history) ? anyData.match_history : [];
-      const chartData = history
-        .map((h: any) => ({
-          timestamp: h?.timestamp ?? h?.created_at ?? "",
-          match_score: Number(h?.match_score ?? h?.score ?? 0),
-        }))
-        .filter((d: any) => d.timestamp);
-
-      return (
         <>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <ScoreCard title="Profile completeness" value={`${profile.toFixed(0)}%`} />
-            <ScoreCard title="Average match score" value={`${avg.toFixed(1)} / 100`} />
-            <ScoreCard title="Resumes parsed" value={`${resumeCount}`} />
+            <ScoreCard title="Profile completeness" value={`${(data as any)?.profile_completeness ?? 0}%`} />
+            <ScoreCard title="Average match score" value={avgText} />
+            <ScoreCard title="Resumes parsed" value={`${(data as any)?.resume_count ?? 0}`} />
           </div>
 
-          <MatchHistoryChart data={chartData} />
+          <MatchHistoryChart
+            data={((data as any)?.match_history || []).map((h: any) => ({
+              timestamp: h.created_at || h.timestamp || new Date().toISOString(),
+              match_score: Number(h.score ?? h.match_score ?? 0),
+            }))}
+          />
         </>
-      );
-    })()}
-  </>
-)}
+      )}
     </main>
   );
 }
