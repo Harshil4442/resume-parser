@@ -16,10 +16,35 @@ from .models import User
 # -------------------------------
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
+def _validate_bcrypt_password_length(password: str) -> None:
+    # bcrypt only uses first 72 bytes (not characters)
+    if len(password.encode("utf-8")) > 72:
+        raise HTTPException(
+            status_code=400,
+            detail="Password is too long. Maximum is 72 bytes (about 72 ASCII characters).",
+        )
+
 def hash_password(password: str) -> str:
+    # Guard: catch accidental non-string values
+    if not isinstance(password, str):
+        raise HTTPException(status_code=400, detail=f"Password must be a string, got {type(password)}")
+
+    # Debug (temporary): confirms what you're hashing
+    print("DEBUG password repr:", repr(password))
+    print("DEBUG password bytes:", len(password.encode("utf-8")))
+
+    # bcrypt limit (72 bytes)
+    if len(password.encode("utf-8")) > 72:
+        raise HTTPException(
+            status_code=400,
+            detail="Password is too long. Maximum is 72 bytes (bcrypt limit).",
+        )
+
     return pwd_context.hash(password)
 
 def verify_password(plain_password: str, password_hash: str) -> bool:
+    if len(plain_password.encode("utf-8")) > 72:
+        return False
     return pwd_context.verify(plain_password, password_hash)
 
 # -------------------------------
