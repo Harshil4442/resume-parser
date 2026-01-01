@@ -5,24 +5,22 @@ export type ResumeParseResponse = {
   sections: Record<string, string>;
 };
 
-export type MatchHistoryPoint = { timestamp: string; match_score: number };
+export type MatchHistoryItem = {
+  created_at: string; // ISO datetime
+  score: number;      // 0..100
+};
 
-export type DashboardSummary = {
+export type AnalyticsSummary = {
   profile_completeness: number;
-  avg_match_score: number;
+  average_match_score: number;
+  resume_count: number;
+  jd_count: number;
   applications_count: number;
-  match_history: MatchHistoryPoint[];
+  match_history: MatchHistoryItem[];
 };
 
-export type Course = {
-  title: string;
-  platform: string;
-  url: string;
-  skill: string;
-};
-
-export type GapAnalysisResponse = {
-  current_skills: string[];
-  skill_gaps: string[];
-  recommended_courses: Course[];
+// Chart format (convert at call-site)
+export type MatchHistoryChartPoint = {
+  timestamp: string;
+  match_score: number;
 };
