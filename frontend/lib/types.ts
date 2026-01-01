@@ -24,3 +24,16 @@ export type MatchHistoryChartPoint = {
   timestamp: string;
   match_score: number;
 };
+
+export type CourseRecommendation = {
+  title: string;
+  platform: string;
+  url: string;
+  skill: string;
+};
+
+export type GapAnalysisResponse = {
+  current_skills: string[];
+  skill_gaps: string[];
+  recommended_courses: CourseRecommendation[];
+};
