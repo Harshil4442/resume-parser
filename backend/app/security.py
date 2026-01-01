@@ -28,6 +28,7 @@ def _validate_bcrypt_password_length(password: str) -> None:
         )
 
 def hash_password(password: str) -> str:
+    _validate_bcrypt_password_length(password)
     if not isinstance(password, str):
         raise HTTPException(status_code=400, detail="Password must be a string")
 
@@ -52,6 +53,11 @@ ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "1008
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/auth/login")
 
 def create_access_token(*, subject: str, expires_delta: Optional[timedelta] = None) -> str:
+    if subject is None:
+        subject = sub
+    if subject is None:
+        raise ValueError("create_access_token requires 'subject' or 'sub'")
+
     expire = datetime.utcnow() + (expires_delta or timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES))
     to_encode = {"sub": subject, "exp": expire}
     return jwt.encode(to_encode, JWT_SECRET, algorithm=JWT_ALGORITHM)
