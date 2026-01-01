@@ -16,7 +16,7 @@ def register(payload: AuthRegisterRequest, db: Session = Depends(get_db)):
     exists = db.query(User).filter(User.email == email).first()
     if exists:
         raise HTTPException(status_code=409, detail="Email already registered")
-
+    print("REGISTER password bytes:", len(payload.password.encode("utf-8")))
     u = User(
         email=email,
         password_hash=hash_password(payload.password),

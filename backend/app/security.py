@@ -28,23 +28,14 @@ def _validate_bcrypt_password_length(password: str) -> None:
         )
 
 def hash_password(password: str) -> str:
-    _validate_bcrypt_password_length(password)
-    # Guard: catch accidental non-string values
     if not isinstance(password, str):
-        raise HTTPException(status_code=400, detail=f"Password must be a string, got {type(password)}")
+        raise HTTPException(status_code=400, detail="Password must be a string")
 
-    # Debug (temporary): confirms what you're hashing
-    print("DEBUG password repr:", repr(password))
-    print("DEBUG password bytes:", len(password.encode("utf-8")))
-
-    # bcrypt limit (72 bytes)
-    if len(password.encode("utf-8")) > 72:
-        raise HTTPException(
-            status_code=400,
-            detail="Password is too long. Maximum is 72 bytes (bcrypt limit).",
-        )
-
-    return pwd_context.hash(password)
+    try:
+        return pwd_context.hash(password)
+    except Exception as e:
+        # bcrypt/passlib errors should not become 500
+        raise HTTPException(status_code=400, detail=str(e))
 
 def verify_password(plain_password: str, password_hash: str) -> bool:
     if len(plain_password.encode("utf-8")) > 72:
