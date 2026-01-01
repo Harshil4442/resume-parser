@@ -30,12 +30,7 @@ export default function DashboardPage() {
             <ScoreCard title="Average match score" value={`${data.average_match_score.toFixed(1)} / 100`} />
             <ScoreCard title="Applications analyzed" value={`${data.applications_count}`} />
           </div>
-          <MatchHistoryChart
-            data={(data.match_history || []).map((h) => ({
-              timestamp: h.created_at,
-              match_score: h.score,
-            }))}
-          />
+          <MatchHistoryChart data={data.match_history || []} />
         </>
       )}
     </main>
