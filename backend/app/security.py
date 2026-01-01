@@ -14,7 +14,10 @@ from .models import User
 # -------------------------------
 # Password hashing
 # -------------------------------
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+pwd_context = CryptContext(
+    schemes=["bcrypt_sha256", "bcrypt"],  # accept old bcrypt hashes too
+    deprecated="auto"
+)
 
 def _validate_bcrypt_password_length(password: str) -> None:
     # bcrypt only uses first 72 bytes (not characters)
@@ -25,6 +28,7 @@ def _validate_bcrypt_password_length(password: str) -> None:
         )
 
 def hash_password(password: str) -> str:
+    _validate_bcrypt_password_length(password)
     # Guard: catch accidental non-string values
     if not isinstance(password, str):
         raise HTTPException(status_code=400, detail=f"Password must be a string, got {type(password)}")
