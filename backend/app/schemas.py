@@ -1,9 +1,23 @@
 from typing import Dict, List, Optional
 from pydantic import BaseModel, EmailStr, Field
+from datetime import datetime
 
 # -------------------------
 # Auth
 # -------------------------
+
+class MatchHistoryItem(BaseModel):
+    created_at: datetime
+    score: float
+
+class AnalyticsSummary(BaseModel):
+    profile_completeness: float
+    average_match_score: float
+    resume_count: int
+    jd_count: int
+    applications_count: int
+    match_history: List[MatchHistoryItem] = []
+
 class AuthRegisterRequest(BaseModel):
     email: EmailStr
     password: str = Field(min_length=6, max_length=128)

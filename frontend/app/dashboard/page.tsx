@@ -28,7 +28,7 @@ export default function DashboardPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <ScoreCard title="Profile completeness" value={`${data.profile_completeness}%`} />
             <ScoreCard title="Average match score" value={`${data.average_match_score.toFixed(1)} / 100`} />
-            <ScoreCard title="Applications analyzed" value={`${data.resume_count}`} />
+            <ScoreCard title="Applications analyzed" value={`${data.applications_count}`} />
           </div>
           <MatchHistoryChart data={data.match_history || []} />
         </>

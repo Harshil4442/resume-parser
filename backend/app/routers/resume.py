@@ -1,6 +1,6 @@
 from fastapi import APIRouter, UploadFile, File, Depends, HTTPException
 from sqlalchemy.orm import Session
-
+from sqlalchemy.exc import SQLAlchemyError
 from ..database import get_db
 from .. import models, schemas
 from ..services.parsing import parse_resume_file
@@ -12,29 +12,37 @@ router = APIRouter(prefix="/resume", tags=["resume"])
 async def parse_resume(
     file: UploadFile = File(...),
     db: Session = Depends(get_db),
-    current_user: models.User = Depends(get_current_user),
+    current_user=Depends(get_current_user),
 ):
-    if file.content_type not in ("application/pdf", "application/octet-stream"):
-        raise HTTPException(status_code=400, detail="Only PDF supported in this starter template.")
+    try:
+        if file.content_type not in ("application/pdf", "application/octet-stream"):
+            raise HTTPException(status_code=400, detail="Only PDF supported.")
 
-    file_bytes = await file.read()
-    raw_text, sections, skills, exp_years = parse_resume_file(file_bytes)
+        file_bytes = await file.read()
+        raw_text, sections, skills, exp_years = parse_resume_file(file_bytes)
 
-    resume = models.Resume(
-        user_id=current_user.id,
-        original_filename=file.filename or "",
-        raw_text=raw_text,
-        skills=skills,
-        experience_years=exp_years,
-        sections=sections,
-    )
-    db.add(resume)
-    db.commit()
-    db.refresh(resume)
+        resume = models.Resume(
+            user_id=current_user.id,
+            original_filename=file.filename or "",
+            raw_text=raw_text,
+            skills=skills,
+            experience_years=exp_years,
+            sections=sections,
+        )
+        db.add(resume)
+        db.commit()
+        db.refresh(resume)
 
-    return schemas.ResumeParseResponse(
-        resume_id=resume.id,
-        skills=skills,
-        experience_years=exp_years,
-        sections=sections,
-    )
+        return schemas.ResumeParseResponse(
+            resume_id=resume.id,
+            skills=skills,
+            experience_years=exp_years,
+            sections=sections,
+        )
+    except HTTPException:
+        raise
+    except SQLAlchemyError as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Parse failed: {str(e)}")

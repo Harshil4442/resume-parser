@@ -27,10 +27,16 @@ export type GapAnalysisResponse = {
   recommended_courses: Course[];
 };
 
+export type MatchHistoryItem = {
+  created_at: string;
+  score: number;
+};
+
 export type AnalyticsSummary = {
   profile_completeness: number;
   average_match_score: number;
   resume_count: number;
   jd_count: number;
-  last_updated?: string | null;
+  applications_count: number;
+  match_history: MatchHistoryItem[];
 };
