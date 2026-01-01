@@ -26,3 +26,11 @@ export type GapAnalysisResponse = {
   skill_gaps: string[];
   recommended_courses: Course[];
 };
+
+export type AnalyticsSummary = {
+  profile_completeness: number;
+  average_match_score: number;
+  resume_count: number;
+  jd_count: number;
+  last_updated?: string | null;
+};
